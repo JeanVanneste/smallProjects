@@ -3,6 +3,7 @@
 from influxdb import InfluxDBClient
 import random
 import math
+import time
 
 def getRandomPulse():
     pulse = math.ceil(random.gauss(70,5))
@@ -23,8 +24,6 @@ def sendQuery():
     print(device2)
 
 if __name__ == "__main__":
-    """
-    for i in range(0,10):
-        print(getRandomPulse())
-    """
-    sendQuery()
+    while (True):
+        sendQuery()
+        time.sleep(60)
