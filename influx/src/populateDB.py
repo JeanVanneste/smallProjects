@@ -5,8 +5,8 @@ import random
 import math
 import time
 
-def getRandomPulse():
-    pulse = math.ceil(random.gauss(70,5))
+def getRandomPulse(mean):
+    pulse = math.ceil(random.gauss(mean,5))
     return pulse
 
 def sendQuery():
@@ -18,8 +18,8 @@ def sendQuery():
     dbname = 'IoT_lab'
 
     #Creating queries
-    device1 = "heartSwatch,device=device_1 pulse="+str(getRandomPulse())
-    device2 = "heartSwatch,device=device_2 pulse="+str(getRandomPulse())
+    device1 = "heartSwatch,device=device_1 pulse="+str(getRandomPulse(70))
+    device2 = "heartSwatch,device=device_2 pulse="+str(getRandomPulse(65))
     #print(device1)
     #print(device2)
 
