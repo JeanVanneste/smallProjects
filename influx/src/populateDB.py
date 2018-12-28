@@ -6,7 +6,7 @@ import math
 import time
 
 def getRandomPulse(mean):
-    pulse = math.ceil(random.gauss(mean,5))
+    pulse = math.ceil(random.gauss(mean*100,500)) / 100
     return pulse
 
 def sendQuery():
