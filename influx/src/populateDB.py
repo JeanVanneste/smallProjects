@@ -20,8 +20,8 @@ def sendQuery():
     #Creating queries
     device1 = "heartSwatch,device=device_1 pulse="+str(getRandomPulse())
     device2 = "heartSwatch,device=device_2 pulse="+str(getRandomPulse())
-    print(device1)
-    print(device2)
+    #print(device1)
+    #print(device2)
 
     client = InfluxDBClient(host, port, user, password, dbname)
 
