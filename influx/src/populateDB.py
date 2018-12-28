@@ -18,10 +18,17 @@ def sendQuery():
     dbname = 'IoT_lab'
 
     #Creating queries
-    device1 = "INSERT heartSWATCH,device=device_1 pulse="+str(getRandomPulse())
-    device2 = "INSERT heartSWATCH,device=device_2 pulse="+str(getRandomPulse())
+    device1 = "heartSwatch,device=device_1 pulse="+str(getRandomPulse())
+    device2 = "heartSwatch,device=device_2 pulse="+str(getRandomPulse())
     print(device1)
     print(device2)
+
+    client = InfluxDBClient(host, port, user, password, dbname)
+
+    client.write([device1],{'db':dbname}, protocol='line')
+    client.write([device2],{'db':dbname}, protocol='line')
+
+    client = None
 
 if __name__ == "__main__":
     while (True):
