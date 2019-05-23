@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 
-with open("2000.html") as fp:
+print("Décennies ?")
+decade = input()
+
+with open(decade+".html") as fp:
     data = fp.read()
 
 data = data.replace("\n", "")
@@ -9,7 +12,7 @@ soup = BeautifulSoup(data, "html.parser")
 
 datas = soup.tbody.find_all("tr")
 
-f = open("2000.csv", 'w')
+f = open(decade+".csv", 'w')
 
 for data in datas:
     rankRaw = data.contents[0]
