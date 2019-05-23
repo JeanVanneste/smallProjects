@@ -3,6 +3,7 @@ Ce script permet de convertir en csv le marbre de super ciné battle.
 
 ## Mode d'emploi
 Installer la bibliothèque BeautifulSoup
+
 `pip install beautifulsoup4`
 
 Lancer le script main.py avec python3
