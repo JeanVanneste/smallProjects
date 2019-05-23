@@ -1,10 +1,11 @@
 from bs4 import BeautifulSoup
+import urllib.request
 
 print("Décennies ?")
 decade = input()
 
-with open(decade+".html") as fp:
-    data = fp.read()
+with urllib.request.urlopen("https://www.supercinebattle.fr/la-liste-ultime-des-films-des-annees-"+decade+"/") as fp:
+    data = fp.read().decode('utf-8')
 
 data = data.replace("\n", "")
 
