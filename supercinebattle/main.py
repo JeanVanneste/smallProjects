@@ -4,25 +4,31 @@ from bs4 import BeautifulSoup
 import urllib.request
 
 print("Décennies ?")
-decade = input()
+input = input()
 
-with urllib.request.urlopen("https://www.supercinebattle.fr/la-liste-ultime-des-films-des-annees-"+decade+"/") as fp:
-    data = fp.read().decode('utf-8')
+if (input == "all"):
+    decades = ["60", "70", "80", "90", "2000"]
+else :
+    decades = [input]
 
-data = data.replace("\n", "")
+for decade in decades:
+    with urllib.request.urlopen("https://www.supercinebattle.fr/la-liste-ultime-des-films-des-annees-"+decade+"/") as fp:
+        data = fp.read().decode('utf-8')
 
-soup = BeautifulSoup(data, "html.parser")
+    data = data.replace("\n", "")
 
-datas = soup.tbody.find_all("tr")
+    soup = BeautifulSoup(data, "html.parser")
 
-f = open(decade+".csv", 'w')
+    datas = soup.tbody.find_all("tr")
 
-for data in datas:
-    rankRaw = data.contents[0]
-    rank = rankRaw.contents[0]
-    titleRaw = data.contents[1]
-    title = titleRaw.contents[0]
-    issueRaw = data.contents[2]
-    issue = issueRaw.contents[0]
+    f = open(decade+".csv", 'w')
 
-    f.write(rank+";"+title+";"+issue+"\n")
+    for data in datas:
+        rankRaw = data.contents[0]
+        rank = rankRaw.contents[0]
+        titleRaw = data.contents[1]
+        title = titleRaw.contents[0]
+        issueRaw = data.contents[2]
+        issue = issueRaw.contents[0]
+
+        f.write(rank+";"+title+";"+issue+"\n")
