@@ -7,7 +7,7 @@ Installer la bibliothèque BeautifulSoup
 `pip install beautifulsoup4`
 
 Lancer le script main.py avec python3  
-Choisir la décennie à convertir (60, 70, 80, 90 ou 2000)  
+Choisir la décennie à convertir (*60*, *70*, *80*, *90* ou *2000*) ou *all* pour récupérer tout d'un coup  
 Attention à bien écrire la bonne valeur sinon le script ne fonctionne pas.
 
 ## Comment ça marche
