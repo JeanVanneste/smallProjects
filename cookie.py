@@ -11,7 +11,7 @@ print("Cookies/sec ?")
 revenue = float(input())
 
 gain = 30*60*2.5*revenue
-print("Gain = "+prettyDisplay(gain))
+print("Gain : "+prettyDisplay(gain))
 
 total = 20.*(gain/3.0)
 print("Minimum reserve : " + prettyDisplay(total))
